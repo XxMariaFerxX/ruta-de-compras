@@ -14,7 +14,7 @@ Crea `.env` (o usa `.env.local`) en la raíz con:
 VITE_SUPABASE_URL=TU_URL
 VITE_SUPABASE_ANON_KEY=TU_ANON_KEY
 VITE_GEMINI_API_KEY=TU_API_KEY
-VITE_ROUTE_MODEL=gemini-1.5-flash
+VITE_ROUTE_MODEL=gemini-2.0-flash
 ```
 
 ## Instalación
@@ -65,16 +65,4 @@ Listo para usar.
 ## Verificación de correo
 Si en el proyecto Supabase está habilitada la confirmación de email, tras registrarte se enviará un correo. Hasta que no confirmes, la sesión no se mantiene y seguirás viendo el botón "Ingresar". El formulario ahora muestra un mensaje recordatorio. Después de confirmar, vuelve y haz login.
 
-## Promover usuario a admin (resumen rápido)
-```sql
--- Buscar usuario por email
-select id,email from auth.users where email='correo@dominio.com';
--- Promover (usa el UUID obtenido)
-select public.promote_to_admin('UUID');
--- Verificar
-select * from public.profiles where id='UUID';
-```
-También puedes hacer:
-```sql
-update public.profiles set role='admin' where id='UUID';
-```
+
